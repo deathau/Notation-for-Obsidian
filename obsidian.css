@@ -1,0 +1,168 @@
+body {
+  --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  --code: #EB5757;
+}
+
+.theme-dark {
+  --background-primary: rgb(47, 52, 55);
+  --background-primary-alt: rgb(63, 68, 71);
+  --background-secondary: rgb(55, 60, 63);
+  --background-secondary-alt: rgb(63, 68, 71);
+  --background-accent: #000;
+  --background-modifier-border: rgba(255, 255, 255, 0.14);
+  --background-modifier-form-field: rgba(0, 0, 0, 0.3);
+  --background-modifier-form-field-highlighted: rgba(0, 0, 0, 0.22);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+  --background-modifier-success: #197300;
+  --background-modifier-error: #3d0000;
+  --background-modifier-error-rgb: 61, 0, 0;
+  --background-modifier-error-hover: #470000;
+  --background-modifier-cover: rgba(0, 0, 0, 0.6);
+  --text-accent: rgba(255, 255, 255, 0.45);
+  --text-accent-hover: rgba(255, 255, 255, 0.45);
+  --text-normal: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-faint: rgba(255, 255, 255, 0.25);
+  --text-error: #ff3333;
+  --text-error-hover: #990000;
+  --text-highlight-bg: rgb(89, 86, 59);
+  --text-selection: rgba(0, 122, 255, 0.2);
+  --text-on-accent: rgba(255, 255, 255, 0.9);
+  --interactive-normal: #2a2a2a;
+  --interactive-hover: #303030;
+  --interactive-accent: #2eaadc;
+  --interactive-accent-rgb: 46, 170, 220;
+  --interactive-accent-hover: #069ccd;
+  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
+  --scrollbar-bg: rgba(255, 255, 255, 0.05);
+  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+}
+.theme-light {
+  --background-primary: white;
+  --background-primary-alt: rgb(247, 246, 243);
+  --background-secondary: rgb(247, 246, 243);
+  --background-secondary-alt: #e8e7e4;
+  --background-accent: #fff;
+  --background-modifier-border: rgba(55, 53, 47, 0.16);
+  --background-modifier-form-field: #fff;
+  --background-modifier-form-field-highlighted: #fff;
+  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
+  --background-modifier-success: #A4E7C3;
+  --background-modifier-error: #e68787;
+  --background-modifier-error-rgb: 230, 135, 135;
+  --background-modifier-error-hover: #FF9494;
+  --background-modifier-cover: rgba(0, 0, 0, 0.8);
+  --text-accent: rgb(55, 53, 47);
+  --text-accent-hover: rgb(55, 53, 47);
+  --text-normal: rgb(55, 53, 47);
+  --text-muted: rgba(55, 53, 47, 0.5);
+  --text-faint: rgba(55, 53, 47, 0.25);
+  --text-error: #800000;
+  --text-error-hover: #990000;
+  --text-highlight-bg: rgb(251, 243, 219);
+  --text-selection: rgba(0, 122, 255, 0.15);
+  --text-on-accent: #f2f2f2;
+  --interactive-normal: #f2f3f5;
+  --interactive-hover: #e9e9e9;
+  --interactive-accent: #2eaadc;
+  --interactive-accent-rgb: 46, 170, 220;
+  --interactive-accent-hover: #069ccd;
+  --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2);
+  --scrollbar-bg: rgba(0, 0, 0, 0.05);
+  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+}
+
+body, html {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
+}
+h1, h2, h3, h4, h5, h6, .view-header-title {
+    font-weight: 700;
+}
+
+.external-link {
+    background-image: none;
+    padding:0;
+    color: var(--text-normal);
+}
+
+.markdown-preview-view .internal-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    line-height: 1.3;
+    border-bottom: 1px solid var(--background-modifier-border);
+    color: var(--text-normal);
+    text-decoration: none;
+}
+
+.markdown-preview-view .internal-link::before {
+    content: " ";
+    background-color: var(--text-normal);
+    clip-path: polygon(18.00%	100.00%	,	80.00%	38.00%	,	80.00%	80.00%	,	86.67%	80.00%	,	86.67%	26.67%	,	33.33%	26.67%	,	33.33%	33.33%	,	75.33%	33.33%	,	13.33%	95.33%); 
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-bottom: none;
+    margin-right: 4px;
+}
+
+/* task lists! (I'm proud of this, but could use improvement) */
+.markdown-preview-view .task-list-item-checkbox {
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    border: 1px solid var(--text-normal);
+    border-radius: 2px;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    margin: 0;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.markdown-preview-view .task-list-item-checkbox:checked {
+    border:none;
+    background-color: #2eaadc;
+}
+.markdown-preview-view .task-list-item-checkbox:hover {
+    background-color: var(--background-primary-alt);
+}
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+    content: ' ';
+    position: absolute;
+    background-color: white;
+    left:1px;
+    right:1px;
+    top:1px;
+    bottom:1px;
+    clip-path: polygon(39.29%	85.71%	,	100.00%	25.00%	,	89.29%	14.29%	,	39.29%	64.28%	,	10.71%	35.69%	,	0.00%	46.42%); 
+}
+
+.markdown-preview-view blockquote {
+    border:none;
+    border-left: 3px solid currentcolor;
+    padding: 0 0.9em;
+    font-size: 1.2em;
+    margin: 3px 2px;
+}
+
+.cm-s-obsidian span.cm-quote {
+    color: var(--text-normal);
+    padding: 0 0.9em;
+    font-size: 1.2em;
+}
+
+.markdown-preview-view code, .cm-s-obsidian span.cm-inline-code, .cm-s-obsidian pre.HyperMD-codeblock {
+    color: var(--code);
+    font-family: var(--font-monospace);
+}
+
+.cm-s-obsidian span.cm-hmd-escape-backslash {
+    color: var(--text-faint);
+}
+
+.markdown-preview-view mark {
+    color: var(--text-normal);
+}
