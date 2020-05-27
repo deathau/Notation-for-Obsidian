@@ -1,6 +1,7 @@
 body {
   --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --code: #EB5757;
+  -webkit-font-smoothing: auto;
 }
 
 .theme-dark {
@@ -37,7 +38,7 @@ body {
   --scrollbar-bg: rgba(255, 255, 255, 0.05);
   --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
 }
-.theme-light {
+.theme-dark {
   --background-primary: white;
   --background-primary-alt: rgb(247, 246, 243);
   --background-secondary: rgb(247, 246, 243);
@@ -75,7 +76,7 @@ body {
 body, html {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
 }
-h1, h2, h3, h4, h5, h6, .view-header-title {
+h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
     font-weight: 700;
 }
 
@@ -96,7 +97,7 @@ h1, h2, h3, h4, h5, h6, .view-header-title {
     text-decoration: none;
 }
 
-.markdown-preview-view .internal-link::before {
+.markdown-preview-view .internal-link::before, .markdown-embed-link::before {
     content: " ";
     background-color: var(--text-normal);
     clip-path: polygon(18.00%	100.00%	,	80.00%	38.00%	,	80.00%	80.00%	,	86.67%	80.00%	,	86.67%	26.67%	,	33.33%	26.67%	,	33.33%	33.33%	,	75.33%	33.33%	,	13.33%	95.33%); 
@@ -124,7 +125,7 @@ h1, h2, h3, h4, h5, h6, .view-header-title {
 }
 .markdown-preview-view .task-list-item-checkbox:checked {
     border:none;
-    background-color: #2eaadc;
+    background-color: var(--interactive-accent);
 }
 .markdown-preview-view .task-list-item-checkbox:hover {
     background-color: var(--background-primary-alt);
@@ -140,7 +141,16 @@ h1, h2, h3, h4, h5, h6, .view-header-title {
     clip-path: polygon(39.29%	85.71%	,	100.00%	25.00%	,	89.29%	14.29%	,	39.29%	64.28%	,	10.71%	35.69%	,	0.00%	46.42%); 
 }
 
-.markdown-preview-view blockquote {
+.markdown-preview-view .task-list-item:has(.task-list-item-checkbox:checked) {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.markdown-preview-view .task-list-item {
+    margin-left: -40px;
+}
+
+.markdown-preview-view blockquote, .cm-s-obsidian pre.HyperMD-quote-1 {
     border:none;
     border-left: 3px solid currentcolor;
     padding: 0 0.9em;
@@ -150,8 +160,6 @@ h1, h2, h3, h4, h5, h6, .view-header-title {
 
 .cm-s-obsidian span.cm-quote {
     color: var(--text-normal);
-    padding: 0 0.9em;
-    font-size: 1.2em;
 }
 
 .markdown-preview-view code, .cm-s-obsidian span.cm-inline-code, .cm-s-obsidian pre.HyperMD-codeblock {
@@ -165,4 +173,201 @@ h1, h2, h3, h4, h5, h6, .view-header-title {
 
 .markdown-preview-view mark {
     color: var(--text-normal);
+}
+
+.CodeMirror-lines, .markdown-preview-view {
+    max-width: 900px !important;
+    margin-left: auto !important;
+    margin-right: auto;
+    padding: 0px 96px 30vh !important;
+    border: none !important;
+}
+.CodeMirror-lines {
+    margin-top: 16px;
+}
+.CodeMirror {
+    padding:0;
+}
+.view-header, .workspace-leaf.mod-active .view-header {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 96px;
+    border: none;
+    background-color: transparent;
+    height: calc(170px);
+}
+.workspace-leaf {
+    position: relative;
+}
+.workspace-leaf-content {
+    overflow: auto;
+    position: unset;
+    margin-top: 35px;
+}
+.view-header-title-container:after {
+    content: none;
+}
+
+.view-header-title-container {
+    width: 100%;
+    margin-top:auto;
+    height:auto;
+    padding:0;
+}
+.view-header-title {
+    font-size: 40px;
+    line-height: 1.2em;
+    padding: 3px 2px;
+    height:auto;
+    margin:0;
+    color: var(--text-normal);
+}
+
+.view-actions {
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+    background-color: transparent;
+    z-index:1
+}
+/* .mod-active .view-actions{
+    background-color: var(--background-primary-alt)
+} */
+/* .mod-active .view-actions::before {
+    content:'';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 35px 35px 0 0;
+    border-color: var(--interactive-accent) transparent transparent transparent;
+    position: absolute;
+    left:0;
+    top:0;
+} */
+
+.view-content {
+    height: auto;
+}
+
+.markdown-source-view{
+    z-index:0;
+}
+
+.view-action {
+    color: var(--text-normal);
+}
+
+.workspace-leaf.mod-active{
+    border:1px solid var(--interactive-accent);
+}
+.workspace-leaf:not(.mod-active){
+    border:1px solid transparent;
+}
+.workspace-split.mod-vertical > .workspace-leaf:not(:last-child) {
+    padding-right: 4px;
+}
+
+.markdown-preview-view, .markdown-source-view {
+    background-color: transparent;
+}
+* {
+    box-sizing: border-box;
+}
+
+.markdown-embed-title {
+    font-size: 1.25em;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: left;
+}
+
+.markdown-preview-view .markdown-embed {
+    border:none;
+    /* padding:0; */
+    margin:0;
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-radius: 0;
+}
+
+.markdown-preview-view .markdown-embed-content {
+    /* max-height: none; */
+}
+
+.markdown-embed-link {
+    color: var(--text-normal);
+    right:unset;
+    left: 0;
+    height: 30px;
+    width: calc(100% - 20px);
+    margin-left: 4px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-embed-link::before {
+    font-size: 0.8em;
+}
+
+.markdown-embed-link svg {
+    display: none;
+}
+
+.markdown-preview-view h1{
+    font-size: 30px;
+    margin-top: 32px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+.markdown-preview-view h2{
+    font-size: 24px;
+    margin-top: 23px;
+    margin-bottom: 1px;
+    font-weight: 600;
+}
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6{
+    font-size: 20px;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}
+
+.cm-s-obsidian .cm-header-1 { font-size: 30px; }
+.cm-s-obsidian .cm-header-2 { font-size: 24px; }
+.cm-s-obsidian .cm-header-3,
+.cm-s-obsidian .cm-header-4,
+.cm-s-obsidian .cm-header-5,
+.cm-s-obsidian .cm-header-6{ font-size: 20px; }
+.cm-s-obsidian .cm-header-6 { color: var(--text-muted); }
+
+
+strong, .cm-s-obsidian .cm-header {
+    font-weight: 600;
+}
+
+ul { list-style-type: disc; }
+
+.markdown-preview-view th:first-child, .markdown-preview-view td:first-child {
+    border-left: none;
+}
+.markdown-preview-view th:last-child, .markdown-preview-view td:last-child {
+    border-right: none;
+}
+
+.markdown-preview-view th {
+    text-align: left;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.markdown-preview-view td:first-child {
+    font-weight: 600;
+}
+
+.markdown-preview-view hr {
+    height: 1px;
+    opacity: 0.5;
 }
