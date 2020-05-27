@@ -38,7 +38,7 @@ body {
   --scrollbar-bg: rgba(255, 255, 255, 0.05);
   --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
 }
-.theme-dark {
+.theme-light {
   --background-primary: white;
   --background-primary-alt: rgb(247, 246, 243);
   --background-secondary: rgb(247, 246, 243);
