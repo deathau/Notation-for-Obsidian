@@ -37,6 +37,9 @@ body {
   --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
   --scrollbar-bg: rgba(255, 255, 255, 0.05);
   --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+
+  --text-normal-solid: #ebebeb;
+  --border-solid: #53585a;
 }
 .theme-light {
   --background-primary: white;
@@ -71,6 +74,9 @@ body {
   --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2);
   --scrollbar-bg: rgba(0, 0, 0, 0.05);
   --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+
+  --text-normal-solid: #37352f;
+  --border-solid: #d8d7d4;
 }
 
 body, html {
@@ -175,18 +181,29 @@ h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
     color: var(--text-normal);
 }
 
-.CodeMirror-lines, .markdown-preview-view {
-    max-width: 900px !important;
-    margin-left: auto !important;
+.CodeMirror-wrap, .markdown-preview-view {
+    max-width: 900px;
+    margin-left: auto;
     margin-right: auto;
     padding: 0px 96px 30vh !important;
-    border: none !important;
+    border: none;
+    position: relative;
+    overflow: hidden;
 }
-.CodeMirror-lines {
+.CodeMirror-gutters, .CodeMirror-gutter-wrapper {
+    left:-24px !important;
+}
+.CodeMirror-wrap {
     margin-top: 16px;
+}
+.CodeMirror-scroll {
+    overflow: visible !important;
 }
 .CodeMirror {
     padding:0;
+}
+.CodeMirror-sizer {
+    margin-left: 0 !important;
 }
 .view-header, .workspace-leaf.mod-active .view-header {
     max-width: 900px;
@@ -222,6 +239,7 @@ h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
     height:auto;
     margin:0;
     color: var(--text-normal);
+    white-space: normal;
 }
 
 .view-actions {
@@ -370,4 +388,27 @@ ul { list-style-type: disc; }
 .markdown-preview-view hr {
     height: 1px;
     opacity: 0.5;
+}
+
+.graph-view.color-fill {
+    color: var(--background-secondary);
+}
+.graph-view.color-circle {
+    color: var(--text-normal-solid);
+}
+.graph-view.color-line {
+    color: var(--border-solid);
+}
+.graph-view.color-text {
+    color: var(--text-normal-solid);
+}
+.graph-view.color-fill-highlight {
+    color: var(--interactive-accent);
+}
+.graph-view.color-line-highlight {
+    color: rgb(var(--interactive-accent-rgb));
+}
+
+canvas {
+    margin-top: -176px
 }
