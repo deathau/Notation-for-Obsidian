@@ -419,3 +419,6 @@ ul ul {
 canvas {
     margin-top: -176px
 }
+.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type {
+    border: 1px solid transparent;
+}
