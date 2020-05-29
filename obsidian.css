@@ -39,6 +39,7 @@ body {
   --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
 
   --text-normal-solid: #ebebeb;
+  --text-muted-solid: #848788;
   --border-solid: #53585a;
 }
 .theme-light {
@@ -366,7 +367,13 @@ strong, .cm-s-obsidian .cm-header {
     font-weight: 600;
 }
 
-ul { list-style-type: disc; }
+ul { 
+    list-style-type: disc; 
+    padding-inline-start: 40px;
+}
+ul ul {
+    padding-inline-start: 60px;
+}
 
 .markdown-preview-view th:first-child, .markdown-preview-view td:first-child {
     border-left: none;
@@ -391,7 +398,7 @@ ul { list-style-type: disc; }
 }
 
 .graph-view.color-fill {
-    color: var(--background-secondary);
+    color: var(--text-muted-solid);
 }
 .graph-view.color-circle {
     color: var(--text-normal-solid);
