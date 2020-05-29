@@ -1,4 +1,4 @@
-# Notion theme for Obsidian.md
+# Notation theme for Obsidian.md
 A theme for [Obsidian](https://obisidian.md/), inspired by and borrowing elements from [Notion](http://notion.so)
 ![Screenshot](./screenshot.jpg)
 
