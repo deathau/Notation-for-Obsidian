@@ -1,9 +1,13 @@
+/* font */
 body {
+  /* font stacks taken directly from Notion */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
   --code: #EB5757;
   -webkit-font-smoothing: auto;
 }
 
+/* Dark theme */
 .theme-dark {
   --background-primary: rgb(47, 52, 55);
   --background-primary-alt: rgb(63, 68, 71);
@@ -42,6 +46,8 @@ body {
   --text-muted-solid: #848788;
   --border-solid: #53585a;
 }
+
+/* Light theme */
 .theme-light {
   --background-primary: white;
   --background-primary-alt: rgb(247, 246, 243);
@@ -80,269 +86,25 @@ body {
   --border-solid: #d8d7d4;
 }
 
-body, html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"
-}
-h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
-    font-weight: 700;
-}
-
-.external-link {
-    background-image: none;
-    padding:0;
-    color: var(--text-normal);
-}
-
-.markdown-preview-view .internal-link {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 500;
-    line-height: 1.3;
-    border-bottom: 1px solid var(--background-modifier-border);
-    color: var(--text-normal);
-    text-decoration: none;
-}
-
-.markdown-preview-view .internal-link::before, .markdown-embed-link::before {
-    content: " ";
-    background-color: var(--text-normal);
-    clip-path: polygon(18.00%	100.00%	,	80.00%	38.00%	,	80.00%	80.00%	,	86.67%	80.00%	,	86.67%	26.67%	,	33.33%	26.67%	,	33.33%	33.33%	,	75.33%	33.33%	,	13.33%	95.33%); 
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    border-bottom: none;
-    margin-right: 4px;
-}
-
-/* task lists! (I'm proud of this, but could use improvement) */
-.markdown-preview-view .task-list-item-checkbox {
-    -webkit-appearance: none;
-    box-sizing: border-box;
-    border: 1px solid var(--text-normal);
-    border-radius: 2px;
-    position: relative;
-    width: 1em;
-    height: 1em;
-    margin: 0;
-    margin-right: 4px;
-    margin-bottom: 2px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-.markdown-preview-view .task-list-item-checkbox:checked {
-    border:none;
-    background-color: var(--interactive-accent);
-}
-.markdown-preview-view .task-list-item-checkbox:hover {
-    background-color: var(--background-primary-alt);
-}
-.markdown-preview-view .task-list-item-checkbox:checked::before {
-    content: ' ';
-    position: absolute;
-    background-color: white;
-    left:1px;
-    right:1px;
-    top:1px;
-    bottom:1px;
-    clip-path: polygon(39.29%	85.71%	,	100.00%	25.00%	,	89.29%	14.29%	,	39.29%	64.28%	,	10.71%	35.69%	,	0.00%	46.42%); 
-}
-
-.markdown-preview-view .task-list-item:has(.task-list-item-checkbox:checked) {
-    text-decoration: line-through;
-    color: var(--text-muted);
-}
-
-.markdown-preview-view .task-list-item {
-    margin-left: -40px;
-}
-
-.markdown-preview-view blockquote, .cm-s-obsidian pre.HyperMD-quote-1 {
-    border:none;
-    border-left: 3px solid currentcolor;
-    padding: 0 0.9em;
-    font-size: 1.2em;
-    margin: 3px 2px;
-}
-
-.cm-s-obsidian span.cm-quote {
-    color: var(--text-normal);
-}
-
-.markdown-preview-view code, .cm-s-obsidian span.cm-inline-code, .cm-s-obsidian pre.HyperMD-codeblock {
-    color: var(--code);
-    font-family: var(--font-monospace);
-}
-
-.cm-s-obsidian span.cm-hmd-escape-backslash {
-    color: var(--text-faint);
-}
-
-.markdown-preview-view mark {
-    color: var(--text-normal);
-}
-
-.CodeMirror-wrap, .markdown-preview-view {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px 96px 30vh !important;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-.CodeMirror-gutters, .CodeMirror-gutter-wrapper {
-    left:-24px !important;
-}
-.CodeMirror-wrap {
-    margin-top: 16px;
-}
-.CodeMirror-scroll {
-    overflow: visible !important;
-}
-.CodeMirror {
-    padding:0;
-}
-.CodeMirror-sizer {
-    margin-left: 0 !important;
-}
-.view-header, .workspace-leaf.mod-active .view-header {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px 96px;
-    border: none;
-    background-color: transparent;
-    height: calc(170px);
-}
-.workspace-leaf {
-    position: relative;
-}
-.workspace-leaf-content {
-    overflow: auto;
-    position: unset;
-    margin-top: 35px;
-}
-.view-header-title-container:after {
-    content: none;
-}
-
-.view-header-title-container {
-    width: 100%;
-    margin-top:auto;
-    height:auto;
-    padding:0;
-}
+/* Fix font weights */
 .view-header-title {
-    font-size: 40px;
-    line-height: 1.2em;
-    padding: 3px 2px;
-    height:auto;
-    margin:0;
-    color: var(--text-normal);
-    white-space: normal;
+  font-weight: 700;
 }
 
-.view-actions {
-    position: absolute;
-    top:0;
-    right:0;
-    left:0;
-    background-color: transparent;
-    z-index:1
-}
-/* .mod-active .view-actions{
-    background-color: var(--background-primary-alt)
-} */
-/* .mod-active .view-actions::before {
-    content:'';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 35px 35px 0 0;
-    border-color: var(--interactive-accent) transparent transparent transparent;
-    position: absolute;
-    left:0;
-    top:0;
-} */
-
-.view-content {
-    height: auto;
+h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
+  font-weight: 600;
 }
 
-.markdown-source-view{
-    z-index:0;
-}
-
-.view-action {
-    color: var(--text-normal);
-}
-
-.workspace-leaf.mod-active{
-    border:1px solid var(--interactive-accent);
-}
-.workspace-leaf:not(.mod-active){
-    border:1px solid transparent;
-}
-.workspace-split.mod-vertical > .workspace-leaf:not(:last-child) {
-    padding-right: 4px;
-}
-
-.markdown-preview-view, .markdown-source-view {
-    background-color: transparent;
-}
-* {
-    box-sizing: border-box;
-}
-
-.markdown-embed-title {
-    font-size: 1.25em;
-    line-height: 1.5;
-    font-weight: 600;
-    text-align: left;
-}
-
-.markdown-preview-view .markdown-embed {
-    border:none;
-    /* padding:0; */
-    margin:0;
-    border-bottom: 1px solid var(--background-modifier-border);
-    border-radius: 0;
-}
-
-.markdown-preview-view .markdown-embed-content {
-    /* max-height: none; */
-}
-
-.markdown-embed-link {
-    color: var(--text-normal);
-    right:unset;
-    left: 0;
-    height: 30px;
-    width: calc(100% - 20px);
-    margin-left: 4px;
-    border-bottom: 1px solid var(--background-modifier-border);
-}
-
-.markdown-embed-link::before {
-    font-size: 0.8em;
-}
-
-.markdown-embed-link svg {
-    display: none;
-}
-
+/* headings */
 .markdown-preview-view h1{
-    font-size: 30px;
-    margin-top: 32px;
-    margin-bottom: 4px;
-    font-weight: 600;
+  font-size: 30px;
+  margin-top: 32px;
+  margin-bottom: 4px;
 }
 .markdown-preview-view h2{
-    font-size: 24px;
-    margin-top: 23px;
-    margin-bottom: 1px;
-    font-weight: 600;
+  font-size: 24px;
+  margin-top: 23px;
+  margin-bottom: 1px;
 }
 .markdown-preview-view h3,
 .markdown-preview-view h4,
@@ -351,7 +113,6 @@ h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
     font-size: 20px;
     margin-top: 16px;
     margin-bottom: 0px;
-    font-weight: 600;
 }
 
 .cm-s-obsidian .cm-header-1 { font-size: 30px; }
@@ -362,63 +123,318 @@ h1, h2, h3, h4, h5, h6, .view-header-title, .cm-s-obsidian .cm-header {
 .cm-s-obsidian .cm-header-6{ font-size: 20px; }
 .cm-s-obsidian .cm-header-6 { color: var(--text-muted); }
 
-
-strong, .cm-s-obsidian .cm-header {
-    font-weight: 600;
+/* links */
+.external-link {
+  background-image: none; /* no external link indicator */
+  padding:0;
+  color: var(--text-normal);
 }
 
-ul { 
-    list-style-type: disc; 
-    padding-inline-start: 40px;
-}
-ul ul {
-    padding-inline-start: 60px;
+.markdown-preview-view .internal-link, .popover.hover-popover .markdown-embed .internal-link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  line-height: 1.3;
+  border-bottom: 1px solid var(--background-modifier-border);
+  color: var(--text-normal);
+  text-decoration: none;
 }
 
+/* Nifty SVG arrow before internal links */
+/* Also applies to embeds */
+.internal-link::before, .markdown-embed-link::before {
+  content: " ";
+  background-color: var(--text-normal);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 4px;
+}
+
+/* embeds (mimics embedded tables from Notion) */
+.markdown-embed-title {
+  font-size: 1.25em;
+  line-height: 1.5;
+  font-weight: 600;
+  text-align: left;
+}
+
+.markdown-preview-view .markdown-embed {
+  border:none;
+  margin:0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  border-radius: 0;
+}
+
+.markdown-embed-link {
+  color: var(--text-normal);
+  right:unset;
+  left: 0;
+  height: 30px;
+  width: calc(100% - 20px);
+  margin-left: 4px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.markdown-embed-link::before {
+  font-size: 0.8em;
+}
+
+.markdown-embed-link svg {
+  display: none; /* hide the svg link icon, gets replaced with a nifty arrow */
+}
+
+/* table headers and first column styling */
 .markdown-preview-view th:first-child, .markdown-preview-view td:first-child {
-    border-left: none;
+  border-left: none;
 }
 .markdown-preview-view th:last-child, .markdown-preview-view td:last-child {
-    border-right: none;
+  border-right: none;
 }
 
 .markdown-preview-view th {
-    text-align: left;
-    font-weight: normal;
-    color: var(--text-muted);
+  text-align: left;
+  font-weight: normal;
+  color: var(--text-muted);
 }
 
 .markdown-preview-view td:first-child {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .markdown-preview-view hr {
-    height: 1px;
-    opacity: 0.5;
+  height: 1px;
+  opacity: 0.5;
 }
 
+/* popover fixes */
+.popover.hover-popover .markdown-embed-link {
+  border-bottom: none;
+}
+
+/* task lists! */
+.markdown-preview-view .task-list-item-checkbox {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  border: 1px solid var(--text-normal);
+  border-radius: 2px;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  margin-right: 4px;
+  margin-bottom: 2px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.markdown-preview-view .task-list-item-checkbox:checked {
+  border:none;
+  background-color: var(--interactive-accent);
+}
+.markdown-preview-view .task-list-item-checkbox:hover {
+  background-color: var(--background-primary-alt);
+}
+/* the SVG check mark */
+.markdown-preview-view .task-list-item-checkbox:checked::before {
+  content: ' ';
+  position: absolute;
+  background-color: white;
+  left:1px;
+  top:1px;
+  right:1px;
+  bottom:1px;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpolygon points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039'%3E%3C/polygon%3E%3C/svg%3E");
+}
+
+/* this should strike through checked off items, once CSS supports :has
+  (it's draft right now) */
+.markdown-preview-view .task-list-item:has(.task-list-item-checkbox:checked) {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.markdown-preview-view .task-list-item {
+  margin-left: -40px;
+}
+
+/* Blockquotes */
+.markdown-preview-view blockquote, .cm-s-obsidian pre.HyperMD-quote-1 {
+  border:none;
+  border-left: 3px solid currentcolor;
+}
+
+/* for some reason messing with the padding and size like this caused weirdness
+  with the editor mode cursor position. So just preview for now */
+.markdown-preview-view blockquote {
+  padding: 0 0.9em;
+  font-size: 1.2em;
+  margin: 3px 2px;
+}
+
+/* code */
+.markdown-preview-view code, .cm-s-obsidian span.cm-inline-code, .cm-s-obsidian pre.HyperMD-codeblock {
+  color: var(--code);
+  font-family: var(--font-monospace);
+}
+
+/* escape character */
+.cm-s-obsidian span.cm-hmd-escape-backslash {
+  color: var(--text-faint);
+}
+
+/* highlight */
+.markdown-preview-view mark {
+  color: var(--text-normal);
+}
+
+/* bulleted lists */
+ul { 
+  list-style-type: disc; 
+  padding-inline-start: 40px;
+}
+ul ul {
+  padding-inline-start: 60px;
+}
+
+/* graph view colours */
 .graph-view.color-fill {
-    color: var(--text-muted-solid);
+  color: var(--text-muted-solid);
 }
 .graph-view.color-circle {
-    color: var(--text-normal-solid);
+  color: var(--text-normal-solid);
 }
 .graph-view.color-line {
-    color: var(--border-solid);
+  color: var(--border-solid);
 }
 .graph-view.color-text {
-    color: var(--text-normal-solid);
+  color: var(--text-normal-solid);
 }
 .graph-view.color-fill-highlight {
-    color: var(--interactive-accent);
+  color: var(--interactive-accent);
 }
 .graph-view.color-line-highlight {
-    color: rgb(var(--interactive-accent-rgb));
+  color: rgb(var(--interactive-accent-rgb));
 }
 
-canvas {
-    margin-top: -176px
+/* misc fixes */
+.cm-s-obsidian span.cm-quote {
+  color: var(--text-normal);
 }
+
+.markdown-preview-view, .markdown-source-view {
+  background-color: transparent;
+}
+
+/* bringing in the margins */
+.CodeMirror-wrap, .markdown-preview-view {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 96px 30vh !important;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.CodeMirror-wrap {
+  margin-top: 16px;
+}
+.CodeMirror-gutters, .CodeMirror-gutter-wrapper {
+  left:-24px !important;
+}
+.CodeMirror-scroll {
+  overflow: visible !important;
+}
+.CodeMirror {
+  padding:0;
+}
+.CodeMirror-sizer {
+  margin-left: 0 !important;
+}
+
+/* "inline" header (scrolls with the document) */
+.view-header, .workspace-leaf.mod-active .view-header {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 96px;
+  border: none;
+  background-color: transparent;
+  height: calc(170px);
+}
+
+.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type .view-header {
+  background-color: transparent;
+  border: none;
+}
+
+.workspace-leaf {
+  position: relative;
+}
+.workspace-leaf-content {
+  overflow: auto;
+  position: unset;
+  margin-top: 35px;
+}
+.view-header-title-container {
+  width: 100%;
+  margin-top:auto;
+  height:auto;
+  padding:0;
+}
+.view-header-title-container:after {
+  content: none;
+}
+
+.view-header-title {
+  font-size: 40px;
+  line-height: 1.2em;
+  padding: 3px 2px;
+  height:auto;
+  margin:0;
+  color: var(--text-normal);
+  white-space: normal;
+}
+
+.view-actions {
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  background-color: transparent;
+  z-index:1
+}
+
+.view-content {
+  height: auto;
+}
+
+.markdown-source-view{
+  z-index:0;
+}
+
+.view-action {
+  color: var(--text-normal);
+}
+
+.workspace-split.mod-vertical > .workspace-leaf:not(:last-child) {
+  padding-right: 4px;
+}
+
+/* with the header modifications there's an ugly gap above the graph view canvas
+  this just shifts the canvas up to cover it. */
+canvas {
+  margin-top: -176px;
+}
+
+/* Notion doesn't have multiple panes. And with the header modifications above,
+  how do you tell which pane is active? I'm just putting a border around the
+  active pane for now (unless there's only one pane) */
+.workspace-leaf.mod-active{
+  border:1px solid var(--interactive-accent);
+}
+.workspace-leaf:not(.mod-active),
 .workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type {
-    border: 1px solid transparent;
+  border:1px solid transparent;
 }
