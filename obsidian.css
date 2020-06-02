@@ -438,3 +438,8 @@ canvas {
 .workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type {
   border:1px solid transparent;
 }
+
+/* fix for the search pane scrolling off the page */
+.document-search-container {
+  position: sticky;
+}
