@@ -3,87 +3,74 @@ body {
   /* font stacks taken directly from Notion */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   --font-monospace: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  --code: #EB5757;
   -webkit-font-smoothing: auto;
+}
+
+body.theme-light, body.theme-dark  {
+  /* change these numbers for an entirely new look */
+  --hue: 203;
+  --sat: 8%;
+  --interactive-accent-rgb: 46, 170, 220;
+  --code: #EB5757;
 }
 
 /* Dark theme */
 .theme-dark {
-  --background-primary: rgb(47, 52, 55);
-  --background-primary-alt: rgb(63, 68, 71);
-  --background-secondary: rgb(55, 60, 63);
-  --background-secondary-alt: rgb(63, 68, 71);
-  --background-accent: #000;
-  --background-modifier-border: rgba(255, 255, 255, 0.14);
-  --background-modifier-form-field: rgba(0, 0, 0, 0.3);
-  --background-modifier-form-field-highlighted: rgba(0, 0, 0, 0.22);
-  --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
-  --background-modifier-success: #197300;
-  --background-modifier-error: #3d0000;
-  --background-modifier-error-rgb: 61, 0, 0;
-  --background-modifier-error-hover: #470000;
-  --background-modifier-cover: rgba(0, 0, 0, 0.6);
-  --text-accent: rgba(255, 255, 255, 0.45);
-  --text-accent-hover: rgba(255, 255, 255, 0.45);
-  --text-normal: rgba(255, 255, 255, 0.9);
-  --text-muted: rgba(255, 255, 255, 0.45);
-  --text-faint: rgba(255, 255, 255, 0.25);
-  --text-error: #ff3333;
-  --text-error-hover: #990000;
-  --text-highlight-bg: rgb(89, 86, 59);
-  --text-selection: rgba(0, 122, 255, 0.2);
-  --text-on-accent: rgba(255, 255, 255, 0.9);
-  --interactive-normal: #2a2a2a;
-  --interactive-hover: #303030;
-  --interactive-accent: #2eaadc;
-  --interactive-accent-rgb: 46, 170, 220;
-  --interactive-accent-hover: #069ccd;
-  --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
-  --scrollbar-bg: rgba(255, 255, 255, 0.05);
-  --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+  --L0: 0%;
+  --L1: 20%;
+  --L2: 23%;
+  --L3: 26%;
 
-  --text-normal-solid: #ebebeb;
-  --text-muted-solid: #848788;
-  --border-solid: #53585a;
+  --text-rgb: 255, 255, 255;
+  
+  --text-highlight-bg:          rgb(89, 86, 59);
+  --text-selection:             hsla(211, 100%, 50%, 0.2);
+  --interactive-normal:         #2a2a2a;
+  --interactive-hover:          #303030;
+
+  --GText: hsl(var(--hue), var(--sat), 90%);
+  --GFill: hsl(var(--hue), var(--sat), 50%);
+  --GLine: hsl(var(--hue), var(--sat), var(--L3));
 }
 
 /* Light theme */
 .theme-light {
-  --background-primary: white;
-  --background-primary-alt: rgb(247, 246, 243);
-  --background-secondary: rgb(247, 246, 243);
-  --background-secondary-alt: #e8e7e4;
-  --background-accent: #fff;
-  --background-modifier-border: rgba(55, 53, 47, 0.16);
-  --background-modifier-form-field: #fff;
-  --background-modifier-form-field-highlighted: #fff;
-  --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
-  --background-modifier-success: #A4E7C3;
-  --background-modifier-error: #e68787;
-  --background-modifier-error-rgb: 230, 135, 135;
-  --background-modifier-error-hover: #FF9494;
-  --background-modifier-cover: rgba(0, 0, 0, 0.8);
-  --text-accent: rgb(55, 53, 47);
-  --text-accent-hover: rgb(55, 53, 47);
-  --text-normal: rgb(55, 53, 47);
-  --text-muted: rgba(55, 53, 47, 0.5);
-  --text-faint: rgba(55, 53, 47, 0.25);
-  --text-error: #800000;
-  --text-error-hover: #990000;
-  --text-highlight-bg: rgb(251, 243, 219);
-  --text-selection: rgba(0, 122, 255, 0.15);
-  --text-on-accent: #f2f2f2;
-  --interactive-normal: #f2f3f5;
-  --interactive-hover: #e9e9e9;
-  --interactive-accent: #2eaadc;
-  --interactive-accent-rgb: 46, 170, 220;
-  --interactive-accent-hover: #069ccd;
-  --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.2);
-  --scrollbar-bg: rgba(0, 0, 0, 0.05);
-  --scrollbar-thumb-bg: rgba(0, 0, 0, 0.1);
+  --L0: 0%;
+  --L1: 100%;
+  --L2: 96%;
+  --L3: 90%;
 
-  --text-normal-solid: #37352f;
-  --border-solid: #d8d7d4;
+  --text-rgb: 55, 53, 47;
+
+  --text-highlight-bg:          rgb(251, 243, 219);
+  --text-selection:             rgba(0, 122, 255, 0.15);
+  --interactive-normal:         #f2f3f5;
+  --interactive-hover:          #e9e9e9;
+
+  --GText: hsl(var(--hue), var(--sat), 10%);
+  --GFill: hsl(var(--hue), var(--sat), 50%);
+  --GLine: hsl(var(--hue), var(--sat), var(--L3));
+}
+
+
+body.theme-light, body.theme-dark {  
+  --background-primary:         hsl(var(--hue), var(--sat), var(--L1));
+  --background-primary-alt:     hsl(var(--hue), var(--sat), var(--L3));
+  --background-secondary:       hsl(var(--hue), var(--sat), var(--L2));
+  --background-secondary-alt:   hsl(var(--hue), var(--sat), var(--L3));
+  --background-accent:          hsl(var(--hue), var(--sat), var(--L0));
+  --background-modifier-border: rgba(var(--text-rgb), 0.14);
+  --text-accent:                rgba(var(--text-rgb), 0.45);
+  --text-accent-hover:          rgba(var(--text-rgb), 0.45);
+  --text-normal:                rgba(var(--text-rgb), 0.9);
+  --text-muted:                 rgba(var(--text-rgb), 0.45);
+  --text-faint:                 rgba(var(--text-rgb), 0.25);
+  --text-on-accent:             rgba(var(--text-rgb), 0.9);
+  --interactive-accent:         rgb(var(--interactive-accent-rgb));
+  --interactive-accent-hover:   rgba(var(--interactive-accent-rgb), 0.8);
+}
+body.theme-light {
+  --background-primary-alt:     hsl(var(--hue), var(--sat), var(--L2));
 }
 
 /* Fix font weights */
@@ -300,28 +287,27 @@ ul ul {
 
 /* graph view colours */
 .graph-view.color-fill {
-  color: var(--text-muted-solid);
-}
-.graph-view.color-circle {
-  color: var(--text-normal-solid);
+  color: var(--GFill);
 }
 .graph-view.color-line {
-  color: var(--border-solid);
+  color: var(--GLine);
 }
 .graph-view.color-text {
-  color: var(--text-normal-solid);
+  color: var(--GText);
 }
 .graph-view.color-fill-highlight {
   color: var(--interactive-accent);
 }
 .graph-view.color-line-highlight {
-  color: rgb(var(--interactive-accent-rgb));
+  color: var(--interactive-accent);
 }
 
 /* misc fixes */
 .cm-s-obsidian span.cm-quote {
   color: var(--text-normal);
 }
+
+/* !!! Remove from here down if you want to use with Andy Matuschak mode V2 !!! */
 
 .markdown-preview-view, .markdown-source-view {
   background-color: transparent;
