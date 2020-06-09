@@ -313,41 +313,37 @@ ul ul {
   background-color: transparent;
 }
 
-/* bringing in the margins */
-.CodeMirror-wrap, .markdown-preview-view {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0px 96px 30vh !important;
-  border: none;
-  position: relative;
-  overflow: hidden;
-}
-.CodeMirror-wrap {
-  margin-top: 16px;
-}
-.CodeMirror-gutters, .CodeMirror-gutter-wrapper {
-  left:-24px !important;
+/* bringing in the margins not necessary anymore due to "Readable line length" setting */
+/* still like to add some padding at the bottom, though, for main panes */
+.mod-root .markdown-source-view .CodeMirror-sizer, .mod-root .markdown-preview-view{
+  padding-bottom: 30vh !important;
 }
 .CodeMirror-scroll {
-  overflow: visible !important;
+  overflow-x: auto !important;
 }
-.CodeMirror {
-  padding:0;
+
+/* fix to padding top so that the editor and preview line up */
+.markdown-source-view.is-readable-line-width .CodeMirror {
+  padding: 0;
+  padding-top: 15px;
 }
-.CodeMirror-sizer {
-  margin-left: 0 !important;
+.markdown-preview-view {
+  padding-top: 0;
 }
 
 /* "inline" header (scrolls with the document) */
 .view-header, .workspace-leaf.mod-active .view-header {
-  max-width: 900px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 96px;
+  padding: 0;
   border: none;
   background-color: transparent;
   height: calc(170px);
+}
+
+.workspace-split.mod-root .workspace-leaf {
+  background-color: var(--background-primary);
 }
 
 .workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type .view-header {
@@ -391,6 +387,11 @@ ul ul {
   background-color: transparent;
   z-index:1
 }
+.view-header-icon {
+  position: absolute;
+  left:0;
+  z-index: 2;
+}
 
 .view-content {
   height: auto;
@@ -408,10 +409,16 @@ ul ul {
   padding-right: 4px;
 }
 
-/* with the header modifications there's an ugly gap above the graph view canvas
-  this just shifts the canvas up to cover it. */
-canvas {
-  margin-top: -176px;
+/* adjustments for the graph */
+.mod-root .workspace-leaf-content[data-type="graph"] .view-header{
+  height: auto;
+}
+.mod-root .workspace-leaf-content[data-type="graph"] .view-header .view-header-title-container{
+  display: none;
+}
+
+.mod-root .workspace-leaf-content[data-type="graph"] .view-content {
+  height: 100%;
 }
 
 /* Notion doesn't have multiple panes. And with the header modifications above,
@@ -426,6 +433,6 @@ canvas {
 }
 
 /* fix for the search pane scrolling off the page */
-.document-search-container {
-  position: sticky;
+.markdown-source-view, .workspace-split.mod-root .view-content {
+  position: unset;
 }
