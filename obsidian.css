@@ -364,6 +364,9 @@ ul ul {
   margin-top:auto;
   height:auto;
   padding:0;
+  /* so it lines up with the content: */
+  margin-left: 16px;
+  margin-right: 12px;
 }
 .view-header-title-container:after {
   content: none;
