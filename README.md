@@ -1,5 +1,5 @@
 # Notation theme for Obsidian.md
-A theme for [Obsidian](https://obisidian.md/), inspired by and borrowing elements from [Notion](http://notion.so)
+A theme for [Obsidian](https://obsidian.md/), inspired by and borrowing elements from [Notion](http://notion.so)
 ![Screenshot](./screenshot.jpg)
 
 ## Install
@@ -7,5 +7,5 @@ A theme for [Obsidian](https://obisidian.md/), inspired by and borrowing element
 2. In Obsidian, click Settings->Plugins and turn on "Custom CSS".
 3. There is no step 3! Enjoy!
 
-## Licence
+## License
 I don't really care what happens to this theme, so I put it under [The Unlicense](./LICENSE) and set it free!
