@@ -447,3 +447,9 @@ ul ul {
 .markdown-source-view, .workspace-split.mod-root .view-content {
   position: unset;
 }
+
+/* Add a little padding to the preview, so it lines up with the editor */
+.markdown-preview-view.is-readable-line-width .markdown-preview-section {
+  padding-left: 16px;
+  padding-right: 20px;
+}
