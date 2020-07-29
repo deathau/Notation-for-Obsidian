@@ -372,9 +372,6 @@ ul ul {
   margin-top:auto;
   height:auto;
   padding:0;
-  /* so it lines up with the content: */
-  margin-left: 16px;
-  margin-right: 12px;
 }
 .view-header-title-container:after {
   content: none;
@@ -446,10 +443,4 @@ ul ul {
 /* fix for the search pane scrolling off the page */
 .markdown-source-view, .workspace-split.mod-root .view-content {
   position: unset;
-}
-
-/* Add a little padding to the preview, so it lines up with the editor */
-.markdown-preview-view.is-readable-line-width .markdown-preview-section {
-  padding-left: 16px;
-  padding-right: 20px;
 }
