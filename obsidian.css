@@ -141,11 +141,18 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 }
 
 /* embeds (mimics embedded tables from Notion) */
-.markdown-embed-title {
+.markdown-embed-title,
+.markdown-embed-content h1:first-child,
+.markdown-embed-content h2:first-child,
+.markdown-embed-content h3:first-child,
+.markdown-embed-content h4:first-child,
+.markdown-embed-content h5:first-child,
+.markdown-embed-content h6:first-child {
   font-size: 1.25em;
   line-height: 1.5;
   font-weight: 600;
   text-align: left;
+  margin-top: 0;
 }
 
 .markdown-preview-view .markdown-embed {
@@ -153,6 +160,7 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   margin:0;
   border-bottom: 1px solid var(--background-modifier-border);
   border-radius: 0;
+  padding-bottom: 5px;
 }
 
 .markdown-embed-link {
