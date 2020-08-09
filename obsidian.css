@@ -321,15 +321,6 @@ ul ul {
   background-color: transparent;
 }
 
-/* bringing in the margins not necessary anymore due to "Readable line length" setting */
-/* still like to add some padding at the bottom, though, for main panes */
-.mod-root .markdown-source-view .CodeMirror-sizer, .mod-root .markdown-preview-view{
-  padding-bottom: 30vh !important;
-}
-.CodeMirror-scroll {
-  overflow-x: auto !important;
-}
-
 /* fix to padding top so that the editor and preview line up */
 .markdown-source-view.is-readable-line-width .CodeMirror {
   padding: 0;
@@ -340,7 +331,8 @@ ul ul {
 }
 
 /* "inline" header (scrolls with the document) */
-.view-header, .workspace-leaf.mod-active .view-header {
+.workspace-leaf-content[data-type=markdown] .view-header,
+.workspace-leaf.mod-active .workspace-leaf-content[data-type=markdown] .view-header {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -354,7 +346,7 @@ ul ul {
   background-color: var(--background-primary);
 }
 
-.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type .view-header {
+.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type .workspace-leaf-content[data-type=markdown] .view-header {
   background-color: transparent;
   border: none;
 }
@@ -362,51 +354,55 @@ ul ul {
 .workspace-leaf {
   position: relative;
 }
-.workspace-leaf-content {
+
+.workspace-leaf-content[data-type=markdown] {
   overflow: auto;
   position: unset;
   margin-top: 35px;
 }
-.view-header-title-container {
+
+.workspace-leaf-content[data-type=markdown] .view-header-title-container {
   width: 100%;
-  margin-top:auto;
-  height:auto;
-  padding:0;
+  margin-top: auto;
+  height: auto;
+  padding: 0;
 }
-.view-header-title-container:after {
+
+.workspace-leaf-content[data-type=markdown] .view-header-title-container:after {
   content: none;
 }
 
-.view-header-title {
+.workspace-leaf-content[data-type=markdown] .view-header-title {
   font-size: 40px;
   line-height: 1.2em;
   padding: 3px 2px;
-  height:auto;
-  margin:0;
+  height: auto;
+  margin: 0;
   color: var(--text-normal);
   white-space: normal;
 }
 
-.view-actions {
+.workspace-leaf-content[data-type=markdown] .view-actions {
   position: absolute;
-  top:0;
-  right:0;
-  left:0;
+  top: 0;
+  right: 0;
+  left: 0;
   background-color: transparent;
-  z-index:1
+  z-index: 1;
 }
-.view-header-icon {
+
+.workspace-leaf-content[data-type=markdown] .view-header-icon {
   position: absolute;
-  left:0;
+  left: 0;
   z-index: 2;
 }
 
-.view-content {
+.workspace-leaf-content[data-type=markdown] .view-content {
   height: auto;
 }
 
-.markdown-source-view{
-  z-index:0;
+.workspace-leaf-content[data-type=markdown] .markdown-source-view {
+  z-index: 0;
 }
 
 .view-action {
@@ -417,16 +413,16 @@ ul ul {
   padding-right: 4px;
 }
 
-/* adjustments for the graph */
-.mod-root .workspace-leaf-content[data-type="graph"] .view-header{
-  height: auto;
-}
-.mod-root .workspace-leaf-content[data-type="graph"] .view-header .view-header-title-container{
-  display: none;
+/* some adjustments for non-inline headers (graphs, etc) */
+.workspace-leaf-content:not([data-type=markdown]) .view-header,
+.workspace-leaf.mod-active .workspace-leaf-content:not([data-type=markdown]) .view-header {
+  border:none;
+  background-color: var(--background-primary);
 }
 
-.mod-root .workspace-leaf-content[data-type="graph"] .view-content {
-  height: 100%;
+.workspace-leaf-content:not([data-type=markdown]) .view-header-title-container:after,
+.workspace-leaf.mod-active .workspace-leaf-content:not([data-type=markdown]) .view-header-title-container:after {
+  background: linear-gradient(to right, transparent, var(--background-primary));
 }
 
 /* Notion doesn't have multiple panes. And with the header modifications above,
