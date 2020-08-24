@@ -214,14 +214,13 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   -webkit-appearance: none;
   box-sizing: border-box;
   border: 1px solid var(--text-normal);
-  border-radius: 2px;
   position: relative;
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
   margin: 0;
   margin-right: 4px;
   margin-bottom: 2px;
-  transition: background-color 0.3s ease;
+  transition: background-color 200ms ease-out 0s;
   cursor: pointer;
 }
 .markdown-preview-view .task-list-item-checkbox:checked {
@@ -236,10 +235,10 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   content: ' ';
   position: absolute;
   background-color: white;
-  left:1px;
-  top:1px;
-  right:1px;
-  bottom:1px;
+  left:2px;
+  top:2px;
+  right:2px;
+  bottom:2px;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpolygon points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039'%3E%3C/polygon%3E%3C/svg%3E");
 }
 
@@ -248,10 +247,6 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 .markdown-preview-view .task-list-item:has(.task-list-item-checkbox:checked) {
   text-decoration: line-through;
   color: var(--text-muted);
-}
-
-.markdown-preview-view .task-list-item {
-  margin-left: -40px;
 }
 
 /* Blockquotes */
@@ -287,10 +282,15 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 /* bulleted lists */
 ul { 
   list-style-type: disc; 
-  padding-inline-start: 40px;
 }
-ul ul {
-  padding-inline-start: 60px;
+ul, ol {
+  padding-inline-start: 24px;
+}
+ul > li, ol > li {
+  padding: 3px 2px;
+  min-height: calc(1.5em + 6px);
+  margin-top: 2px;
+  margin-bottom: 1px;
 }
 
 /* graph view colours */
