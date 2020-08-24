@@ -269,6 +269,14 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   font-family: var(--font-monospace);
 }
 
+.markdown-preview-view pre > code {
+  padding: 24px 6px 24px 10px;
+  color: var(--text-normal);
+  display: block;
+  overflow: auto;
+  white-space: pre;
+}
+
 /* escape character */
 .cm-s-obsidian span.cm-hmd-escape-backslash {
   color: var(--text-faint);
