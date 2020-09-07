@@ -12,6 +12,8 @@ body.theme-light, body.theme-dark  {
   --sat: 8%;
   --interactive-accent-rgb: 46, 170, 220;
   --code: #EB5757;
+
+  --opacity-translucency: 0.7;
 }
 
 /* Dark theme */
@@ -71,6 +73,14 @@ body.theme-light, body.theme-dark {
 }
 body.theme-light {
   --background-primary-alt:     hsl(var(--hue), var(--sat), var(--L2));
+}
+
+/* title bar */
+.top-titlebar {
+  background-color: var(--background-secondary-alt);
+}
+.top-titlebar-inner {
+  color: var(--text-normal);
 }
 
 /* Fix font weights */
