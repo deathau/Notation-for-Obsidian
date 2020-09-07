@@ -181,6 +181,11 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   display: none; /* hide the svg link icon, gets replaced with a nifty arrow */
 }
 
+/* fix for long markdown editor text (tables) getting cut off */
+.CodeMirror-scroll {
+  margin-right: -10px;
+}
+
 /* table headers and first column styling */
 .markdown-preview-view th:first-child, .markdown-preview-view td:first-child {
   border-left: none;
