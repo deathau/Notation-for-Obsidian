@@ -76,10 +76,10 @@ body.theme-light {
 }
 
 /* title bar */
-.top-titlebar {
+.titlebar {
   background-color: var(--background-secondary-alt);
 }
-.top-titlebar-inner {
+.titlebar-inner {
   color: var(--text-normal);
 }
 
