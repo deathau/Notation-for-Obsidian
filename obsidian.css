@@ -1,4 +1,33 @@
-/* font */
+/***** TABLE OF CONTENTS *****/
+/* 1. Font
+/* 2. Colours
+/*     2.1. Hue options (change these numbers for an entirely new look!)
+/*     2.2. Dark theme
+/*     2.3. Light theme
+/*     2.4. Common (calculated)
+/* 3. General UI
+/*     3.1. Title Bar
+/* 4. Markdown (editor / preview)
+/*     4.1. Headings
+/*         4.1.1. Fix font weights
+/*     4.2. Links
+/*         4.2.1. Nifty arrow before internal links (also applies to embeds)
+/*     4.3. Embeds
+/*     4.4. Tables
+/*     4.5. Popovers
+/*     4.6. Task Lists
+/*     4.7. Blockquotes
+/*     4.8. Code
+/*     4.9. Bulleted lists
+/*     4.10. Misc Fixes
+/* 5. Graph view colours
+/* 6. In-document header (scrolls with the document)
+/*     6.1. Adjustments for non-in-document headers (graphs, etc)\
+/*     6.2. Active pane border 
+/*     6.3. Misc fixes
+/***** *****/
+
+/* 1. Font */
 body {
   /* font stacks taken directly from Notion */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -6,7 +35,10 @@ body {
   -webkit-font-smoothing: auto;
 }
 
-body.theme-light, body.theme-dark  {
+/* 2. Colours */
+/* 2.1. Hue options ( change these numbers for an entirely new look!) */
+body.theme-light,
+body.theme-dark {
   /* change these numbers for an entirely new look */
   --hue: 203;
   --sat: 8%;
@@ -16,7 +48,7 @@ body.theme-light, body.theme-dark  {
   --opacity-translucency: 0.7;
 }
 
-/* Dark theme */
+/* 2.2. Dark theme */
 .theme-dark {
   --L0: 0%;
   --L1: 20%;
@@ -24,18 +56,34 @@ body.theme-light, body.theme-dark  {
   --L3: 26%;
 
   --text-rgb: 255, 255, 255;
-  
-  --text-highlight-bg:          rgb(89, 86, 59);
-  --text-selection:             hsla(211, 100%, 50%, 0.2);
-  --interactive-normal:         #2a2a2a;
-  --interactive-hover:          #303030;
 
-  --GText: hsl(var(--hue), var(--sat), 90%);
-  --GFill: hsl(var(--hue), var(--sat), 50%);
-  --GLine: hsl(var(--hue), var(--sat), var(--L3));
+  --text-highlight-bg: rgb(89, 86, 59);
+  --text-selection: hsla(211, 100%, 50%, 0.2);
+  --interactive-normal: #2a2a2a;
+  --interactive-hover: #303030;
+
+  --text-gray: rgba(255, 255, 255, 0.6);
+  --text-brown: rgb(147, 114, 100);
+  --text-orange: rgb(255, 163, 68);
+  --text-yellow: rgb(255, 220, 73);
+  --text-green: rgb(77, 171, 154);
+  --text-blue: rgb(82, 156, 202);
+  --text-purple: rgb(154, 109, 215);
+  --text-pink: rgb(226, 85, 161);
+  --text-red: rgb(255, 115, 105);
+
+  --background-gray: rgb(69, 75, 78);
+  --background-brown: rgb(67, 64, 64);
+  --background-orange: rgb(89, 74, 58);
+  --background-yellow: rgb(89, 86, 59);
+  --background-green: rgb(53, 76, 75);
+  --background-blue: rgb(54, 73, 84);
+  --background-purple: rgb(68, 63, 87);
+  --background-pink: rgb(83, 59, 76);
+  --background-red: rgb(89, 65, 65);
 }
 
-/* Light theme */
+/* 2.3. Light theme */
 .theme-light {
   --L0: 0%;
   --L1: 100%;
@@ -44,90 +92,133 @@ body.theme-light, body.theme-dark  {
 
   --text-rgb: 55, 53, 47;
 
-  --text-highlight-bg:          rgb(251, 243, 219);
-  --text-selection:             rgba(0, 122, 255, 0.15);
-  --interactive-normal:         #f2f3f5;
-  --interactive-hover:          #e9e9e9;
+  --text-highlight-bg: rgb(251, 243, 219);
+  --text-selection: rgba(0, 122, 255, 0.15);
+  --interactive-normal: #f2f3f5;
+  --interactive-hover: #e9e9e9;
 
-  --GText: hsl(var(--hue), var(--sat), 10%);
-  --GFill: hsl(var(--hue), var(--sat), 50%);
-  --GLine: hsl(var(--hue), var(--sat), var(--L3));
+  --text-gray: rgba(55, 53, 47, 0.6);
+  --text-brown: rgb(100, 71, 58);
+  --text-orange: rgb(217, 115, 13);
+  --text-yellow: rgb(223, 171, 1);
+  --text-green: rgb(15, 123, 108);
+  --text-blue: rgb(11, 110, 153);
+  --text-purple: rgb(105, 64, 165);
+  --text-pink: rgb(173, 26, 114);
+  --text-red: rgb(224, 62, 62);
+
+  --background-gray: rgb(235, 236, 237);
+  --background-brown: rgb(233, 229, 227);
+  --background-orange: rgb(250, 235, 221);
+  --background-yellow: rgb(251, 243, 219);
+  --background-green: rgb(221, 237, 234);
+  --background-blue: rgb(221, 235, 241);
+  --background-purple: rgb(234, 228, 242);
+  --background-pink: rgb(244, 223, 235);
+  --background-red: rgb(251, 228, 228);
 }
 
-
-body.theme-light, body.theme-dark {  
-  --background-primary:         hsl(var(--hue), var(--sat), var(--L1));
-  --background-primary-alt:     hsl(var(--hue), var(--sat), var(--L3));
-  --background-secondary:       hsl(var(--hue), var(--sat), var(--L2));
-  --background-secondary-alt:   hsl(var(--hue), var(--sat), var(--L3));
-  --background-accent:          hsl(var(--hue), var(--sat), var(--L0));
+/* 2.4. Common (calculated) */
+body.theme-light,
+body.theme-dark {
+  --background-primary: hsl(var(--hue), var(--sat), var(--L1));
+  --background-primary-alt: hsl(var(--hue), var(--sat), var(--L3));
+  --background-secondary: hsl(var(--hue), var(--sat), var(--L2));
+  --background-secondary-alt: hsl(var(--hue), var(--sat), var(--L3));
+  --background-accent: hsl(var(--hue), var(--sat), var(--L0));
   --background-modifier-border: rgba(var(--text-rgb), 0.14);
-  --text-accent:                rgba(var(--text-rgb), 0.45);
-  --text-accent-hover:          rgba(var(--text-rgb), 0.45);
-  --text-normal:                rgba(var(--text-rgb), 0.9);
-  --text-muted:                 rgba(var(--text-rgb), 0.45);
-  --text-faint:                 rgba(var(--text-rgb), 0.25);
-  --text-on-accent:             rgba(var(--text-rgb), 0.9);
-  --interactive-accent:         rgb(var(--interactive-accent-rgb));
-  --interactive-accent-hover:   rgba(var(--interactive-accent-rgb), 0.8);
+  --text-accent: rgba(var(--text-rgb), 0.45);
+  --text-accent-hover: rgba(var(--text-rgb), 0.45);
+  --text-normal: rgba(var(--text-rgb), 0.9);
+  --text-muted: rgba(var(--text-rgb), 0.45);
+  --text-faint: rgba(var(--text-rgb), 0.25);
+  --text-on-accent: rgba(var(--text-rgb), 0.9);
+  --interactive-accent: rgb(var(--interactive-accent-rgb));
+  --interactive-accent-hover: rgba(var(--interactive-accent-rgb), 0.8);
 }
+
 body.theme-light {
-  --background-primary-alt:     hsl(var(--hue), var(--sat), var(--L2));
+  --background-primary-alt: hsl(var(--hue), var(--sat), var(--L2));
 }
 
-/* title bar */
-.titlebar {
-  background-color: var(--background-secondary-alt);
-}
-.titlebar-inner {
-  color: var(--text-normal);
-}
-
-/* Fix font weights */
+/* 3. General UI */
 .view-header-title {
   font-weight: 700;
 }
 
-h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
-  font-weight: 600;
+/* 3.1. Title bar */
+.titlebar {
+  background-color: var(--background-secondary-alt);
 }
 
-/* headings */
-.markdown-preview-view h1{
+.titlebar-inner {
+  color: var(--text-normal);
+}
+
+/* 4. Markdown (editor / preview)
+/* 4.1. Headings */
+.markdown-preview-view h1 {
   font-size: 30px;
   margin-top: 32px;
   margin-bottom: 4px;
 }
-.markdown-preview-view h2{
+
+.markdown-preview-view h2 {
   font-size: 24px;
   margin-top: 23px;
   margin-bottom: 1px;
 }
+
 .markdown-preview-view h3,
 .markdown-preview-view h4,
 .markdown-preview-view h5,
-.markdown-preview-view h6{
-    font-size: 20px;
-    margin-top: 16px;
-    margin-bottom: 0px;
+.markdown-preview-view h6 {
+  font-size: 20px;
+  margin-top: 16px;
+  margin-bottom: 0px;
 }
 
-.cm-s-obsidian .cm-header-1 { font-size: 30px; }
-.cm-s-obsidian .cm-header-2 { font-size: 24px; }
+.cm-s-obsidian .cm-header-1 {
+  font-size: 30px;
+}
+
+.cm-s-obsidian .cm-header-2 {
+  font-size: 24px;
+}
+
 .cm-s-obsidian .cm-header-3,
 .cm-s-obsidian .cm-header-4,
 .cm-s-obsidian .cm-header-5,
-.cm-s-obsidian .cm-header-6{ font-size: 20px; }
-.cm-s-obsidian .cm-header-6 { color: var(--text-muted); }
+.cm-s-obsidian .cm-header-6 {
+  font-size: 20px;
+}
 
-/* links */
+.cm-s-obsidian .cm-header-6 {
+  color: var(--text-muted);
+}
+
+/* 4.1.1. Fix font weights */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+.cm-s-obsidian .cm-header {
+  font-weight: 600;
+}
+
+/* 4.2. Links */
 .external-link {
-  background-image: none; /* no external link indicator */
-  padding:0;
+  background-image: none;
+  /* no external link indicator */
+  padding: 0;
   color: var(--text-normal);
 }
 
-.markdown-preview-view .internal-link, .popover.hover-popover .markdown-embed .internal-link {
+.markdown-preview-view .internal-link,
+.popover.hover-popover .markdown-embed .internal-link {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -138,9 +229,14 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   text-decoration: none;
 }
 
-/* Nifty SVG arrow before internal links */
-/* Also applies to embeds */
-.internal-link::before, .markdown-embed-link::before {
+.cm-s-obsidian span.cm-link.cm-hmd-barelink {
+  /* Not actually a link */
+  color: var(--text-normal);
+}
+
+/* 4.2.1. Nifty arrow before internal links (also applies to embeds) */
+.internal-link::before,
+.markdown-embed-link::before {
   content: " ";
   background-color: var(--text-normal);
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
@@ -150,7 +246,7 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   margin-right: 4px;
 }
 
-/* embeds (mimics embedded tables from Notion) */
+/* 4.3. embeds (mimics embedded tables from Notion) */
 .markdown-embed-title,
 .markdown-embed-content h1:first-child,
 .markdown-embed-content h2:first-child,
@@ -166,8 +262,8 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 }
 
 .markdown-preview-view .markdown-embed {
-  border:none;
-  margin:0;
+  border: none;
+  margin: 0;
   border-bottom: 1px solid var(--background-modifier-border);
   border-radius: 0;
   padding-bottom: 5px;
@@ -175,7 +271,7 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 
 .markdown-embed-link {
   color: var(--text-normal);
-  right:unset;
+  right: unset;
   left: 0;
   height: 30px;
   width: calc(100% - 20px);
@@ -188,19 +284,24 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
 }
 
 .markdown-embed-link svg {
-  display: none; /* hide the svg link icon, gets replaced with a nifty arrow */
+  display: none;
+  /* hide the svg link icon, gets replaced with a nifty arrow */
 }
 
+/* 4.4. Tables */
 /* fix for long markdown editor text (tables) getting cut off */
 .CodeMirror-scroll {
   margin-right: -10px;
 }
 
 /* table headers and first column styling */
-.markdown-preview-view th:first-child, .markdown-preview-view td:first-child {
+.markdown-preview-view th:first-child,
+.markdown-preview-view td:first-child {
   border-left: none;
 }
-.markdown-preview-view th:last-child, .markdown-preview-view td:last-child {
+
+.markdown-preview-view th:last-child,
+.markdown-preview-view td:last-child {
   border-right: none;
 }
 
@@ -219,12 +320,12 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   opacity: 0.5;
 }
 
-/* popover fixes */
+/* 4.5. Popovers */
 .popover.hover-popover .markdown-embed-link {
   border-bottom: none;
 }
 
-/* task lists! */
+/* 4.6. Task lists */
 .markdown-preview-view .task-list-item-checkbox {
   -webkit-appearance: none;
   box-sizing: border-box;
@@ -238,35 +339,37 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   transition: background-color 200ms ease-out 0s;
   cursor: pointer;
 }
+
 .markdown-preview-view .task-list-item-checkbox:checked {
-  border:none;
+  border: none;
   background-color: var(--interactive-accent);
 }
+
 .markdown-preview-view .task-list-item-checkbox:hover {
   background-color: var(--background-primary-alt);
 }
+
 /* the SVG check mark */
 .markdown-preview-view .task-list-item-checkbox:checked::before {
   content: ' ';
   position: absolute;
   background-color: white;
-  left:2px;
-  top:2px;
-  right:2px;
-  bottom:2px;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpolygon points='5.5 11.9993304 14 3.49933039 12.5 2 5.5 8.99933039 1.5 4.9968652 0 6.49933039'%3E%3C/polygon%3E%3C/svg%3E");
 }
 
-/* this should strike through checked off items, once CSS supports :has
-  (it's draft right now) */
-.markdown-preview-view .task-list-item:has(.task-list-item-checkbox:checked) {
+.markdown-preview-view ul>li.task-list-item.is-checked {
   text-decoration: line-through;
   color: var(--text-muted);
 }
 
-/* Blockquotes */
-.markdown-preview-view blockquote, .cm-s-obsidian pre.HyperMD-quote-1 {
-  border:none;
+/* 4.7. Blockquotes */
+.markdown-preview-view blockquote,
+.cm-s-obsidian pre.HyperMD-quote-1 {
+  border: none;
   border-left: 3px solid currentcolor;
 }
 
@@ -278,18 +381,43 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   margin: 3px 2px;
 }
 
-/* code */
-.markdown-preview-view code, .cm-s-obsidian span.cm-inline-code, .cm-s-obsidian pre.HyperMD-codeblock {
+/* 4.8. Code */
+.markdown-preview-view code,
+.cm-s-obsidian span.cm-inline-code,
+.cm-s-obsidian pre.HyperMD-codeblock {
   color: var(--code);
   font-family: var(--font-monospace);
 }
 
-.markdown-preview-view pre > code {
+.markdown-preview-view pre>code {
   padding: 24px 6px 24px 10px;
   color: var(--text-normal);
   display: block;
   overflow: auto;
   white-space: pre;
+}
+
+/* 4.9. Bulleted lists */
+ul {
+  list-style-type: disc;
+}
+
+ul,
+ol {
+  padding-inline-start: 24px;
+}
+
+ul>li,
+ol>li {
+  padding: 3px 2px;
+  min-height: calc(1.5em + 6px);
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+
+/* 4.10. Misc fixes */
+.cm-s-obsidian span.cm-quote {
+  color: var(--text-normal);
 }
 
 /* escape character */
@@ -302,45 +430,47 @@ h1, h2, h3, h4, h5, h6, strong, .cm-s-obsidian .cm-header {
   color: var(--text-normal);
 }
 
-/* bulleted lists */
-ul { 
-  list-style-type: disc; 
-}
-ul, ol {
-  padding-inline-start: 24px;
-}
-ul > li, ol > li {
-  padding: 3px 2px;
-  min-height: calc(1.5em + 6px);
-  margin-top: 2px;
-  margin-bottom: 1px;
+/* 5. Graph view colours */
+.graph-view.color-fill,
+.graph-view.color-arrow {
+  color: hsl(var(--hue), var(--sat), 50%);
 }
 
-/* graph view colours */
-.graph-view.color-fill {
-  color: var(--GFill);
+.graph-view.color-fill-unresolved {
+  color: hsl(var(--hue), var(--sat), 50%);
+  opacity: 0.5;
 }
+
 .graph-view.color-line {
-  color: var(--GLine);
+  color: hsl(var(--hue), var(--sat), var(--L3));
 }
+
 .graph-view.color-text {
-  color: var(--GText);
+  color: var(--text-normal);
 }
+
 .graph-view.color-fill-highlight {
   color: var(--interactive-accent);
 }
+
 .graph-view.color-line-highlight {
   color: var(--interactive-accent);
 }
 
-/* misc fixes */
-.cm-s-obsidian span.cm-quote {
-  color: var(--text-normal);
+.theme-light .graph-view.color-fill-attachment,
+.theme-dark .graph-view.color-fill-attachment {
+  color: var(--background-blue);
 }
 
-/* !!! Remove from here down if you want to use with Andy Matuschak mode V2 !!! */
+.theme-dark .graph-view.color-fill-tag,
+.theme-light .graph-view.color-fill-tag {
+  color: var(--text-yellow);
+}
 
-.markdown-preview-view, .markdown-source-view {
+/* 6. In-document header (scrolls with the document) */
+/* !!! Remove from here down if you want to use with Andy Matuschak mode V2 !!! */
+.markdown-preview-view,
+.markdown-source-view {
   background-color: transparent;
 }
 
@@ -349,11 +479,12 @@ ul > li, ol > li {
   padding: 0;
   padding-top: 15px;
 }
+
 .markdown-preview-view {
   padding-top: 0;
 }
 
-/* "inline" header (scrolls with the document) */
+/* This is where the magic happens */
 .workspace-leaf-content[data-type=markdown] .view-header,
 .workspace-leaf.mod-active .workspace-leaf-content[data-type=markdown] .view-header {
   max-width: 700px;
@@ -369,7 +500,7 @@ ul > li, ol > li {
   background-color: var(--background-primary);
 }
 
-.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type .workspace-leaf-content[data-type=markdown] .view-header {
+.workspace>.workspace-split>.workspace-leaf:first-of-type:last-of-type .workspace-leaf-content[data-type=markdown] .view-header {
   background-color: transparent;
   border: none;
 }
@@ -432,14 +563,14 @@ ul > li, ol > li {
   color: var(--text-normal);
 }
 
-.workspace-split.mod-vertical > .workspace-leaf:not(:last-child) {
+.workspace-split.mod-vertical>.workspace-leaf:not(:last-child) {
   padding-right: 4px;
 }
 
-/* some adjustments for non-inline headers (graphs, etc) */
+/* 6.1. Adjustments for non-in-document headers (graphs, etc) */
 .workspace-leaf-content:not([data-type=markdown]) .view-header,
 .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=markdown]) .view-header {
-  border:none;
+  border: none;
   background-color: var(--background-primary);
 }
 
@@ -448,18 +579,22 @@ ul > li, ol > li {
   background: linear-gradient(to right, transparent, var(--background-primary));
 }
 
+/* 6.2. Active pane border */
 /* Notion doesn't have multiple panes. And with the header modifications above,
   how do you tell which pane is active? I'm just putting a border around the
   active pane for now (unless there's only one pane) */
-.workspace-leaf.mod-active{
-  border:1px solid var(--interactive-accent);
-}
-.workspace-leaf:not(.mod-active),
-.workspace > .workspace-split > .workspace-leaf:first-of-type:last-of-type {
-  border:1px solid transparent;
+.workspace-leaf.mod-active {
+  border: 1px solid var(--interactive-accent);
 }
 
-/* fix for the search pane scrolling off the page */
-.markdown-source-view, .workspace-split.mod-root .view-content {
+.workspace-leaf:not(.mod-active),
+.workspace>.workspace-split>.workspace-leaf:first-of-type:last-of-type {
+  border: 1px solid transparent;
+}
+
+/* 6.3 Misc fixes */
+/* Fix for the search pane scrolling off the page */
+.markdown-source-view,
+.workspace-split.mod-root .view-content {
   position: unset;
 }
