@@ -21,10 +21,13 @@
 /*     4.9. Bulleted lists
 /*     4.10. Misc Fixes
 /* 5. Graph view colours
-/* 6. In-document header (scrolls with the document)
-/*     6.1. Adjustments for non-in-document headers (graphs, etc)\
-/*     6.2. Active pane border 
-/*     6.3. Misc fixes
+/* 6. Notion Colour Blocks
+/* 7. In-document header (scrolls with the document) [remove for compatibility with Andy's mode]
+/*     7.1. Adjustments for non-in-document headers (graphs, etc)\
+/*     7.2. Active pane border 
+/*     7.3. Misc fixes
+/* 8. Tags
+/*     8.1. Tag custom colours
 /***** *****/
 
 /* 1. Font */
@@ -467,7 +470,149 @@ ol>li {
   color: var(--text-yellow);
 }
 
-/* 6. In-document header (scrolls with the document) */
+/* 6. Notion Colour Blocks */
+/* Original idea from: https://gist.github.com/mklepaczewski/54e451f09994b9d450de81c8baaf8aa4 */
+/* but also with simpler classes so you can use `<span class='colour'>` as well */
+
+.app-container .markdown-preview-view pre[class*="language-note-"] {
+  padding: 3px 2px;
+  border-radius: 0;
+}
+
+.app-container .markdown-preview-view pre[class*="language-note-"] code[class*="language-note-"] {
+  color: var(--text-normal);
+  white-space: pre-wrap;
+  font-family: var(--default-font);
+  font-size: 1rem;
+  padding: 0;
+}
+
+.app-container .markdown-preview-view pre.language-note-notice,
+.app-container .markdown-preview-view pre.language-note-gray-background,
+.app-container .markdown-preview-view pre.language-note-gray-bg,
+.gray-background,
+.gray-bg {
+  background-color: var(--background-gray);
+}
+
+.app-container .markdown-preview-view pre.language-note-brown-background,
+.app-container .markdown-preview-view pre.language-note-brown-bg,
+.brown-background,
+.brown-bg {
+  background-color: var(--background-brown);
+}
+
+.app-container .markdown-preview-view pre.language-note-orange-background,
+.app-container .markdown-preview-view pre.language-note-orange-bg,
+.orange-background,
+.orange-bg {
+  background-color: var(--background-orange);
+}
+
+.app-container .markdown-preview-view pre.language-note-warn,
+.app-container .markdown-preview-view pre.language-note-yellow-background,
+.app-container .markdown-preview-view pre.language-note-yellow-bg,
+.yellow-background,
+.yellow-bg {
+  background-color: var(--background-yellow)
+}
+
+.app-container .markdown-preview-view pre.language-note-success,
+.app-container .markdown-preview-view pre.language-note-green-background,
+.app-container .markdown-preview-view pre.language-note-green-bg,
+.green-background,
+.green-bg {
+  background-color: var(--background-green);
+}
+
+.app-container .markdown-preview-view pre.language-note-info,
+.app-container .markdown-preview-view pre.language-note-blue-background,
+.app-container .markdown-preview-view pre.language-note-blue-bg,
+.blue-background,
+.blue-bg {
+  background-color: var(--background-blue);
+}
+
+.app-container .markdown-preview-view pre.language-note-purple-background,
+.app-container .markdown-preview-view pre.language-note-purple-bg,
+.purple-background,
+.purple-bg {
+  background-color: var(--background-purple);
+}
+
+.app-container .markdown-preview-view pre.language-note-pink-background,
+.app-container .markdown-preview-view pre.language-note-pink-bg,
+.pink-background,
+.pink-bg {
+  background-color: var(--background-pink);
+}
+
+.app-container .markdown-preview-view pre.language-note-danger,
+.app-container .markdown-preview-view pre.language-note-red-background,
+.app-container .markdown-preview-view pre.language-note-red-bg,
+.red-background,
+.red-bg {
+  background-color: var(--background-red);
+}
+
+.app-container .markdown-preview-view pre.language-note-gray,
+.app-container .markdown-preview-view pre.language-note-brown,
+.app-container .markdown-preview-view pre.language-note-orange,
+.app-container .markdown-preview-view pre.language-note-yellow,
+.app-container .markdown-preview-view pre.language-note-green,
+.app-container .markdown-preview-view pre.language-note-blue,
+.app-container .markdown-preview-view pre.language-note-purple,
+.app-container .markdown-preview-view pre.language-note-pink,
+.app-container .markdown-preview-view pre.language-note-red {
+  background-color: transparent;
+}
+
+.app-container .markdown-preview-view pre.language-note-gray code.language-note-gray,
+.gray {
+  color: var(--text-gray);
+}
+
+.app-container .markdown-preview-view pre.language-note-brown code.language-note-brown,
+.brown {
+  color: var(--text-brown);
+}
+
+.app-container .markdown-preview-view pre.language-note-orange code.language-note-orange,
+.orange {
+  color: var(--text-orange);
+}
+
+.app-container .markdown-preview-view pre.language-note-yellow code.language-note-yellow,
+.yellow {
+  color: var(--text-yellow)
+}
+
+.app-container .markdown-preview-view pre.language-note-green code.language-note-green,
+.green {
+  color: var(--text-green);
+}
+
+.app-container .markdown-preview-view pre.language-note-blue code.language-note-blue,
+.blue {
+  color: var(--text-blue);
+}
+
+.app-container .markdown-preview-view pre.language-note-purple code.language-note-purple,
+.purple {
+  color: var(--text-purple);
+}
+
+.app-container .markdown-preview-view pre.language-note-pink code.language-note-pink,
+.pink {
+  color: var(--text-pink);
+}
+
+.app-container .markdown-preview-view pre.language-note-red code.language-note-red,
+.red {
+  color: var(--text-red);
+}
+
+/* 7. In-document header (scrolls with the document) [remove for compatibility with Andy's mode] */
 /* !!! Remove from here down if you want to use with Andy Matuschak mode V2 !!! */
 .markdown-preview-view,
 .markdown-source-view {
@@ -561,13 +706,30 @@ ol>li {
 
 .view-action {
   color: var(--text-normal);
+  margin:0;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+  transition: background-color 20ms ease-in 0s;
+}
+
+.view-action > svg {
+  max-width: 14px;
+  max-height: 14px;
+}
+
+.view-action:hover,
+.view-action.is-active {
+  color: var(--text-normal);
+  background-color: var(--background-primary-alt);
 }
 
 .workspace-split.mod-vertical>.workspace-leaf:not(:last-child) {
   padding-right: 4px;
 }
 
-/* 6.1. Adjustments for non-in-document headers (graphs, etc) */
+/* 7.1. Adjustments for non-in-document headers (graphs, etc) */
 .workspace-leaf-content:not([data-type=markdown]) .view-header,
 .workspace-leaf.mod-active .workspace-leaf-content:not([data-type=markdown]) .view-header {
   border: none;
@@ -579,7 +741,7 @@ ol>li {
   background: linear-gradient(to right, transparent, var(--background-primary));
 }
 
-/* 6.2. Active pane border */
+/* 7.2. Active pane border */
 /* Notion doesn't have multiple panes. And with the header modifications above,
   how do you tell which pane is active? I'm just putting a border around the
   active pane for now (unless there's only one pane) */
@@ -592,9 +754,47 @@ ol>li {
   border: 1px solid transparent;
 }
 
-/* 6.3 Misc fixes */
+/* 7.3 Misc fixes */
 /* Fix for the search pane scrolling off the page */
 .markdown-source-view,
 .workspace-split.mod-root .view-content {
   position: unset;
+}
+
+/* 8. Tags */
+a.tag,
+.cm-s-obsidian span.cm-hashtag,
+.tag-pane-tag-text {
+  color: var(--text-normal);
+  text-decoration: none;
+  background-color: var(--background-yellow);
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 14px;
+  border: none;
+}
+
+.cm-s-obsidian span.cm-hashtag-begin {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  padding-right: 0;
+  font-size: 15px; /* why? I dunno. Just needs it to balance out */
+}
+
+.cm-s-obsidian span.cm-hashtag-end {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* 8.1. Tag custom colours */
+/* As of Obsidian 0.9.0 there are custom classes for tags. 
+ * this theme provides varibles of the form --background-<color> and --text-<color> for the following colours:
+ * gray, brown, orange, yellow, green, blue, purple, pink, red
+ * If you want your own colours for your own specific tags you can copy and utilize this: */
+.cm-s-obsidian span.cm-hashtag.cm-tag-important,
+.tag[href="#important"] {
+  background-color: var(--background-red);
 }
