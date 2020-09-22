@@ -341,6 +341,7 @@ strong,
   margin-bottom: 2px;
   transition: background-color 200ms ease-out 0s;
   cursor: pointer;
+  filter: none;
 }
 
 .markdown-preview-view .task-list-item-checkbox:checked {
