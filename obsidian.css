@@ -276,6 +276,10 @@ strong,
   margin-top: 0;
 }
 
+.markdown-embed-title {
+  padding-left: 30px;
+}
+
 .markdown-preview-view .markdown-embed {
   border: none;
   margin: 0;
@@ -284,10 +288,16 @@ strong,
   padding-bottom: 5px;
 }
 
+.markdown-embed .markdown-preview-view {
+  padding-left: 8px;
+  padding-right: 4px;
+}
+
 .markdown-embed-link {
   color: var(--text-normal);
   right: unset;
   left: 0;
+  top: 3px;
   height: 30px;
   width: calc(100% - 20px);
   margin-left: 4px;
@@ -639,8 +649,14 @@ ol>li {
   padding-top: 15px;
 }
 
+.markdown-preview-view,
+.CodeMirror-lines {
+  padding-top: 15px;
+}
+
 .markdown-preview-view {
-  padding-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* This is where the magic happens */
@@ -652,7 +668,8 @@ ol>li {
   padding: 0;
   border: none;
   background-color: transparent;
-  height: calc(170px);
+  height: auto;
+  padding-top: 108px;
 }
 
 .workspace-split.mod-root .workspace-leaf {
@@ -720,7 +737,7 @@ ol>li {
 
 .view-action {
   color: var(--text-normal);
-  margin:0;
+  margin: 0;
   padding: 0 8px;
   height: 28px;
   line-height: 28px;
@@ -728,7 +745,7 @@ ol>li {
   transition: background-color 20ms ease-in 0s;
 }
 
-.view-action > svg {
+.view-action>svg {
   max-width: 14px;
   max-height: 14px;
 }
